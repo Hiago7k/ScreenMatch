@@ -3,7 +3,17 @@ public class Filme {
     String nome;
     int anoLancamento;
     boolean incluidoNoPlanp;
-    double avaliacao;
+    double somaDasAvaliacoes;
     int totalDeAvaliacoes;
     int duracaoEmMinutos;
+
+    void exibeFichaTecnica () {
+        System.out.println("Nome do filme: " + nome);
+        System.out.println("Ano de lançamento: "+ anoLancamento);
+    }
+
+    void avalia(double nota){
+        somaDasAvaliacoes = somaDasAvaliacoes + nota;
+        totalDeAvaliacoes++;
+    }
 }
