@@ -1,5 +1,9 @@
 package br.com.alura.screenmatch.calculos;
 
 public class CalculadoraDeTempo {
-    
+    private int tempoTotal;
+
+    public int getTempoTotal() {
+        return tempoTotal;
+    }
 }
