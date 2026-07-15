@@ -7,6 +7,7 @@ public class Principal {
         meuFilme.setNome("O poderoso chefão");
         meuFilme.setAnoLancamento(1972);
         meuFilme.setDuracaoEmMinutos(230);
+        System.out.println("Duracao do filme: " + meuFilme.getDuracaoEmMinutos());
 
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia(8);
@@ -23,5 +24,10 @@ public class Principal {
         lost.setNome("Lost");
         lost.setAnoLancamento(2015);
         lost.exibeFichaTecnica();
+        lost.setTemporadas(10);
+        lost.setMinutosPorEpisodio(45);
+        lost.setEpisodiosPorTemporada(12);
+        System.out.println("Duracao do filme: " + lost.getDuracaoEmMinutos());
+
     }
 }
