@@ -1,4 +1,5 @@
 import br.com.alura.screenmatch.modelos.Filme;
+import br.com.alura.screenmatch.modelos.Serie;
 
 public class Principal {
     static void main() {
@@ -18,5 +19,9 @@ public class Principal {
 //        System.out.println(meuFilme.pegaMedia());
 
 
+        Serie lost = new Serie();
+        lost.setNome("Lost");
+        lost.setAnoLancamento(2015);
+        lost.exibeFichaTecnica();
     }
 }
