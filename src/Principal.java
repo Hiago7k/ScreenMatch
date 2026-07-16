@@ -1,4 +1,6 @@
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
+import br.com.alura.screenmatch.calculos.Recomendacao;
+import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
@@ -13,8 +15,6 @@ public class Principal {
         seuFilme.setNome("Titanic");
         seuFilme.setAnoLancamento(1950);
         seuFilme.setDuracaoEmMinutos(530);
-
-
         System.out.println("Duracao do filme: " + meuFilme.getDuracaoEmMinutos());
 
         meuFilme.exibeFichaTecnica();
@@ -23,10 +23,6 @@ public class Principal {
         meuFilme.avalia(5);
         System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
         System.out.println(meuFilme.pegaMedia());
-//        meuFilme.somaDasAvaliacoes = 10;
-//        meuFilme.totalDeAvaliacoes = 1;
-//        System.out.println(meuFilme.pegaMedia());
-
 
         Serie lost = new Serie();
         lost.setNome("Lost");
@@ -42,5 +38,17 @@ public class Principal {
         calculadora.inclui(seuFilme);
         calculadora.inclui(lost);
         System.out.println(calculadora.getTempoTotal());
+
+        Episodio ep1 = new Episodio();
+        ep1.setNumero(10);
+        ep1.setNome("Os mortos caminham");
+        ep1.setTotalVisualizacoes(2000);
+        ep1.setSerie(lost);
+
+
+        Recomendacao filtro = new Recomendacao();
+        filtro.filtra(meuFilme);
+        filtro.filtra(seuFilme);
+        filtro.filtra(ep1);
     }
 }
