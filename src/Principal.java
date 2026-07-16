@@ -8,6 +8,13 @@ public class Principal {
         meuFilme.setNome("O poderoso chefão");
         meuFilme.setAnoLancamento(1972);
         meuFilme.setDuracaoEmMinutos(230);
+
+        Filme seuFilme = new Filme();
+        seuFilme.setNome("Titanic");
+        seuFilme.setAnoLancamento(1950);
+        seuFilme.setDuracaoEmMinutos(530);
+
+
         System.out.println("Duracao do filme: " + meuFilme.getDuracaoEmMinutos());
 
         meuFilme.exibeFichaTecnica();
@@ -32,6 +39,7 @@ public class Principal {
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         calculadora.inclui(meuFilme);
+        calculadora.inclui(seuFilme);
         System.out.println(calculadora.getTempoTotal());
     }
 }
