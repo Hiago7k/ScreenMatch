@@ -45,10 +45,12 @@ public class Principal {
         ep1.setTotalVisualizacoes(2000);
         ep1.setSerie(lost);
 
-
         Recomendacao filtro = new Recomendacao();
-        filtro.filtra(meuFilme);
-        filtro.filtra(seuFilme);
-        filtro.filtra(ep1);
+
+        var filmeDoPaulo = new Filme();
+        filmeDoPaulo.setNome("Dogvile");
+        filmeDoPaulo.setDuracaoEmMinutos(200);
+        filmeDoPaulo.setAnoLancamento(2003);
+        filmeDoPaulo.avalia(10);
     }
 }
