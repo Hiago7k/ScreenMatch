@@ -4,6 +4,8 @@ import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     static void main() {
         Filme meuFilme = new Filme();
@@ -52,5 +54,9 @@ public class Principal {
         filmeDoPaulo.setDuracaoEmMinutos(200);
         filmeDoPaulo.setAnoLancamento(2003);
         filmeDoPaulo.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filmeDoPaulo);
+        
     }
 }
