@@ -57,6 +57,11 @@ public class Principal {
 
         ArrayList<Filme> listaDeFilmes = new ArrayList<>();
         listaDeFilmes.add(filmeDoPaulo);
-        
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(seuFilme);
+
+        System.out.println("Tamanho da lista " + listaDeFilmes.size());
+        System.out.println("Primeiro Filme " + listaDeFilmes.get(0).getNome());
+
     }
 }
