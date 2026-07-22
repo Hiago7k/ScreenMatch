@@ -5,16 +5,15 @@ import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Principal {
     static void main() {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("O poderoso chefão");
+        Filme meuFilme = new Filme("O poderoso chefão");
         meuFilme.setAnoLancamento(1972);
         meuFilme.setDuracaoEmMinutos(230);
 
-        Filme seuFilme = new Filme();
-        seuFilme.setNome("Titanic");
+        Filme seuFilme = new Filme("Titanic");
         seuFilme.setAnoLancamento(1950);
         seuFilme.setDuracaoEmMinutos(530);
         System.out.println("Duracao do filme: " + meuFilme.getDuracaoEmMinutos());
@@ -33,7 +32,7 @@ public class Principal {
         lost.setTemporadas(10);
         lost.setMinutosPorEpisodio(45);
         lost.setEpisodiosPorTemporada(12);
-        System.out.println("Duracao para maratonar lost: " + lost.getDuracaoEmMinutos());
+        System.out.println("Duração para terminar lost: " + lost.getDuracaoEmMinutos());
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         calculadora.inclui(meuFilme);
@@ -49,8 +48,7 @@ public class Principal {
 
         Recomendacao filtro = new Recomendacao();
 
-        var filmeDoPaulo = new Filme();
-        filmeDoPaulo.setNome("Dogvile");
+        var filmeDoPaulo = new Filme("DogVile");
         filmeDoPaulo.setDuracaoEmMinutos(200);
         filmeDoPaulo.setAnoLancamento(2003);
         filmeDoPaulo.avalia(10);
