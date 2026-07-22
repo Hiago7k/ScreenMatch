@@ -18,5 +18,9 @@ public class PrincipalComListas {
         lista.add(meuFilme);
         lista.add(seuFilme);
         lista.add(lost);
+
+        for(Titulo assistidos : lista){
+            System.out.println(assistidos);
+        }
     }
 }
