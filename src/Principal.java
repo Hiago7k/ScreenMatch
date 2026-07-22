@@ -24,9 +24,7 @@ public class Principal {
         System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
         System.out.println(meuFilme.pegaMedia());
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoLancamento(2015);
+        Serie lost = new Serie("Lost", 2015);
         lost.exibeFichaTecnica();
         lost.setTemporadas(10);
         lost.setMinutosPorEpisodio(45);
