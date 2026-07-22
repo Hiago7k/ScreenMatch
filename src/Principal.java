@@ -7,15 +7,14 @@ import br.com.alura.screenmatch.modelos.Serie;
 import java.util.ArrayList;
 
 public class Principal {
+
     static void main() {
-        Filme meuFilme = new Filme("O poderoso chefão");
-        meuFilme.setAnoLancamento(1972);
+        Filme meuFilme = new Filme("O poderoso chefão", 1972);
         meuFilme.setDuracaoEmMinutos(230);
 
-        Filme seuFilme = new Filme("Titanic");
-        seuFilme.setAnoLancamento(1950);
+        Filme seuFilme = new Filme("Titanic", 1950);
         seuFilme.setDuracaoEmMinutos(530);
-        System.out.println("Duracao do filme: " + meuFilme.getDuracaoEmMinutos());
+        System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
 
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia(8);
@@ -45,9 +44,8 @@ public class Principal {
 
         Recomendacao filtro = new Recomendacao();
 
-        var filmeDoPaulo = new Filme("DogVile");
+        var filmeDoPaulo = new Filme("DogVile", 2003);
         filmeDoPaulo.setDuracaoEmMinutos(200);
-        filmeDoPaulo.setAnoLancamento(2003);
         filmeDoPaulo.avalia(10);
 
         ArrayList<Filme> listaDeFilmes = new ArrayList<>();
