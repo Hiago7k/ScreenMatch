@@ -4,9 +4,7 @@ import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class PrincipalComListas {
     static void main() {
@@ -18,7 +16,7 @@ public class PrincipalComListas {
         filmeDoPaulo.avalia(10);
         Serie lost = new Serie("Lost", 2015);
 
-        ArrayList<Titulo> lista = new ArrayList<>();
+        List<Titulo> lista = new LinkedList<>();
         lista.add(filmeDoPaulo);
         lista.add(meuFilme);
         lista.add(seuFilme);
@@ -45,6 +43,8 @@ public class PrincipalComListas {
         System.out.println(lista);
 
         lista.sort(Comparator.comparing(Titulo::getAnoLancamento));
+        System.out.println("Ordenando por ano");
+        System.out.println(lista);
 
     }
 }
