@@ -5,6 +5,7 @@ import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PrincipalComListas {
     static void main() {
@@ -32,6 +33,11 @@ public class PrincipalComListas {
         buscaPorArtista.add("Adam Sandler");
         buscaPorArtista.add("Brad Pit");
         buscaPorArtista.add("Dylan Obrien");
+        buscaPorArtista.add("Alan Made");
+        System.out.println(buscaPorArtista);
+
+        Collections.sort(buscaPorArtista);
+        System.out.println("Depois da ordenação");
         System.out.println(buscaPorArtista);
 
     }
