@@ -1,8 +1,10 @@
 package br.com.alura.screenmatch.modelos;
 
 import br.com.alura.screenmatch.calculos.Classificavel;
+import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo> {
+    @SerializedName("Title")
     private  String nome;
     private int anoLancamento;
     private boolean incluidoNoPlano;

@@ -28,12 +28,12 @@ public class PrincipalComBusca {
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
         System.out.println("Trazendo informações do filme...");
-        System.out.println(response.body());
         String json = response.body();
         System.out.println(json);
 
         Gson gson = new Gson();
         Titulo meuTitulo = gson.fromJson(json, Titulo.class);
+        System.out.println("Titulo: " + meuTitulo.getNome());
 
     }
 }
