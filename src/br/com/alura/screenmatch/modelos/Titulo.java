@@ -18,6 +18,10 @@ public class Titulo implements Comparable<Titulo> {
         this.anoLancamento = anoLancamento;
     }
 
+    public Titulo(TituloOmdb meuTituloOmdb) {
+
+    }
+
     public String getNome() {
         return nome;
     }
