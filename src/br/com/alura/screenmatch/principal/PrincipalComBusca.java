@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.principal;
 
+import br.com.alura.screenmatch.excecao.ErroDeConversaoDeAnoException;
 import br.com.alura.screenmatch.modelos.Titulo;
 import br.com.alura.screenmatch.modelos.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
@@ -49,8 +50,8 @@ public class PrincipalComBusca {
             System.out.println(e.getMessage());
         } catch (IllegalArgumentException e) {
             System.out.println("ALgum erro de argumento na busca");
-        } catch(Exception e){
-            System.out.println("Erro absoluto");
+        } catch(ErroDeConversaoDeAnoException e){
+            System.out.println(e.getMessage());
         }
         System.out.println("Programa finalizou corretamente");
 
