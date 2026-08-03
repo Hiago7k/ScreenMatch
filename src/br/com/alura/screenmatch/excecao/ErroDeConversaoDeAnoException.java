@@ -1,6 +1,14 @@
 package br.com.alura.screenmatch.excecao;
 
 public class ErroDeConversaoDeAnoException extends RuntimeException {
-    public ErroDeConversaoDeAnoException(String s) {
+    private String mensagem;
+
+    public ErroDeConversaoDeAnoException(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    @Override
+    public String getMessage() {
+        return this.mensagem;
     }
 }
