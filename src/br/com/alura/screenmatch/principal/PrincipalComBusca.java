@@ -40,10 +40,13 @@ public class PrincipalComBusca {
 
         TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
         System.out.println(meuTituloOmdb);
-
+        try {
+            Titulo meuTitulo = new Titulo(meuTituloOmdb);
+        }catch (NumberFormatException e){
+            System.out.println("Aconteceu um erro: ");
+            System.out.println(e.getMessage());
+        }
         System.out.println("Titulo já convertido pelo DTO");
-
-        Titulo meuTitulo = new Titulo(meuTituloOmdb);
         System.out.println(meuTitulo);
     }
 }
