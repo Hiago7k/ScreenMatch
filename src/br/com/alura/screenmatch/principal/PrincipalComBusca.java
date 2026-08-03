@@ -21,32 +21,36 @@ public class PrincipalComBusca {
         String filmePesquisar = data.next();
 
         String endereco = "https://www.omdbapi.com/?t=" + filmePesquisar + "&apikey=6f533f65" ;
+        try{
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(endereco))
+                    .build();
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endereco))
-                .build();
+            HttpResponse<String> response = client
+                    .send(request, HttpResponse.BodyHandlers.ofString());
 
-        HttpResponse<String> response = client
-                .send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println("Trazendo informações do filme...");
+            String json = response.body();
+            System.out.println(json);
 
-        System.out.println("Trazendo informações do filme...");
-        String json = response.body();
-        System.out.println(json);
+            Gson gson = new GsonBuilder()
+                    .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                    .create();
 
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                .create();
-
-        TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
-        System.out.println(meuTituloOmdb);
-        try {
+            TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
+            System.out.println(meuTituloOmdb);
+            //try {
             Titulo meuTitulo = new Titulo(meuTituloOmdb);
+            System.out.println("Titulo já convertido pelo DTO");
+            System.out.println(meuTitulo);
         }catch (NumberFormatException e){
             System.out.println("Aconteceu um erro: ");
             System.out.println(e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("ALgum erro de argumento na busca");
         }
-        System.out.println("Titulo já convertido pelo DTO");
-        System.out.println(meuTitulo);
+        System.out.println("Programa finalizou corretamente");
+
     }
 }
