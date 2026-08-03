@@ -20,7 +20,7 @@ public class PrincipalComBusca {
         System.out.println("Digite o Filme que deseja buscar: ");
         String filmePesquisar = data.next();
 
-        String endereco = "https://www.omdbapi.com/?t=" + filmePesquisar + "&apikey=6f533f65" ;
+        String endereco = "https://www.omdbapi.com/?t=" + filmePesquisar.replace(" ",  "+") + "&apikey=6f533f65" ;
         try{
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
