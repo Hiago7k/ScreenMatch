@@ -14,18 +14,24 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class PrincipalComBusca {
     static void main() throws IOException, InterruptedException {
         Scanner data = new Scanner(System.in);
         String filmePesquisar = "";
+        List<Titulo> titulos = new ArrayList<>();
 
-
-        while (!filmePesquisar.equalsIgnoreCase("Sim")) {
+        while (!filmePesquisar.equalsIgnoreCase("sair")) {
 
             System.out.println("Digite o Filme que deseja buscar: ");
             filmePesquisar = data.next();
+
+            if (filmePesquisar.equalsIgnoreCase("sair")){
+                break;
+            }
 
             String endereco = "https://www.omdbapi.com/?t=" + filmePesquisar.replace(" ", "+") + "&apikey=6f533f65";
             try {
@@ -52,10 +58,7 @@ public class PrincipalComBusca {
                 System.out.println("Titulo já convertido pelo DTO");
                 System.out.println(meuTitulo);
 
-                FileWriter escrita = new FileWriter("filmes.txt");
-                escrita.write(meuTitulo.toString());
-                escrita.close();
-
+               titulos.add(meuTitulo);
             } catch (NumberFormatException e) {
                 System.out.println("Aconteceu um erro: ");
                 System.out.println(e.getMessage());
@@ -64,7 +67,8 @@ public class PrincipalComBusca {
             } catch (ErroDeConversaoDeAnoException e) {
                 System.out.println(e.getMessage());
             }
-            System.out.println("Programa finalizou corretamente");
         }
+        System.out.println(titulos);
+        System.out.println("Programa finalizou corretamente");
     }
 }
