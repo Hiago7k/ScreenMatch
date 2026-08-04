@@ -19,47 +19,52 @@ import java.util.Scanner;
 public class PrincipalComBusca {
     static void main() throws IOException, InterruptedException {
         Scanner data = new Scanner(System.in);
-        System.out.println("Digite o Filme que deseja buscar: ");
-        String filmePesquisar = data.next();
+        String filmePesquisar = "";
 
-        String endereco = "https://www.omdbapi.com/?t=" + filmePesquisar.replace(" ",  "+") + "&apikey=6f533f65" ;
-        try{
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(endereco))
-                    .build();
 
-            HttpResponse<String> response = client
-                    .send(request, HttpResponse.BodyHandlers.ofString());
+        while (!filmePesquisar.equalsIgnoreCase("Sim")) {
 
-            System.out.println("Trazendo informações do filme...");
-            String json = response.body();
-            System.out.println(json);
+            System.out.println("Digite o Filme que deseja buscar: ");
+            filmePesquisar = data.next();
 
-            Gson gson = new GsonBuilder()
-                    .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                    .create();
+            String endereco = "https://www.omdbapi.com/?t=" + filmePesquisar.replace(" ", "+") + "&apikey=6f533f65";
+            try {
+                HttpClient client = HttpClient.newHttpClient();
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(URI.create(endereco))
+                        .build();
 
-            TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
-            System.out.println(meuTituloOmdb);
-            //try {
-            Titulo meuTitulo = new Titulo(meuTituloOmdb);
-            System.out.println("Titulo já convertido pelo DTO");
-            System.out.println(meuTitulo);
+                HttpResponse<String> response = client
+                        .send(request, HttpResponse.BodyHandlers.ofString());
 
-            FileWriter escrita = new FileWriter("filmes.txt");
-            escrita.write(meuTitulo.toString());
-            escrita.close();
+                System.out.println("Trazendo informações do filme...");
+                String json = response.body();
+                System.out.println(json);
 
-        }catch (NumberFormatException e){
-            System.out.println("Aconteceu um erro: ");
-            System.out.println(e.getMessage());
-        } catch (IllegalArgumentException e) {
-            System.out.println("ALgum erro de argumento na busca");
-        } catch(ErroDeConversaoDeAnoException e){
-            System.out.println(e.getMessage());
+                Gson gson = new GsonBuilder()
+                        .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                        .create();
+
+                TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
+                System.out.println(meuTituloOmdb);
+                //try {
+                Titulo meuTitulo = new Titulo(meuTituloOmdb);
+                System.out.println("Titulo já convertido pelo DTO");
+                System.out.println(meuTitulo);
+
+                FileWriter escrita = new FileWriter("filmes.txt");
+                escrita.write(meuTitulo.toString());
+                escrita.close();
+
+            } catch (NumberFormatException e) {
+                System.out.println("Aconteceu um erro: ");
+                System.out.println(e.getMessage());
+            } catch (IllegalArgumentException e) {
+                System.out.println("ALgum erro de argumento na busca");
+            } catch (ErroDeConversaoDeAnoException e) {
+                System.out.println(e.getMessage());
+            }
+            System.out.println("Programa finalizou corretamente");
         }
-        System.out.println("Programa finalizou corretamente");
-
     }
 }
