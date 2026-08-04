@@ -7,12 +7,14 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.sql.NClob;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,9 @@ public class PrincipalComBusca {
         Scanner data = new Scanner(System.in);
         String filmePesquisar = "";
         List<Titulo> titulos = new ArrayList<>();
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .create();
 
         while (!filmePesquisar.equalsIgnoreCase("sair")) {
 
@@ -47,10 +52,6 @@ public class PrincipalComBusca {
                 String json = response.body();
                 System.out.println(json);
 
-                Gson gson = new GsonBuilder()
-                        .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                        .create();
-
                 TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
                 System.out.println(meuTituloOmdb);
                 //try {
@@ -69,6 +70,13 @@ public class PrincipalComBusca {
             }
         }
         System.out.println(titulos);
+
+        FileWriter escrita = new FileWriter ("filmes.json");
+        escrita.write(gson.toJson(titulos)); // passando a lista
+        escrita.close();
+
+        System.out.println("Arquivo Json criado ");
+
         System.out.println("Programa finalizou corretamente");
     }
 }
