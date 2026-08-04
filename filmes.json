@@ -1,1 +1,18 @@
-[( Ano de lançamento: 1993, Nome: Matrix,duração: 60 ), ( Ano de lançamento: 2003, Nome: Dogville,duração: 17 )]
+[
+  {
+    "Nome": "Matrix",
+    "AnoLancamento": 1993,
+    "IncluidoNoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalDeAvaliacoes": 0,
+    "DuracaoEmMinutos": 60
+  },
+  {
+    "Nome": "Dogville",
+    "AnoLancamento": 2003,
+    "IncluidoNoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalDeAvaliacoes": 0,
+    "DuracaoEmMinutos": 17
+  }
+]
